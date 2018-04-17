@@ -103,7 +103,9 @@ def parse_file( fname, edges, polygons, transform, screen, color,):
             add_circle(edges,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step)
-
+            matrix_mult(transform[len(transform)-1], edges)
+            draw_lines(edges, screen, color)
+            edges = []
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
             add_curve(edges,
@@ -112,14 +114,18 @@ def parse_file( fname, edges, polygons, transform, screen, color,):
                       float(args[4]), float(args[5]),
                       float(args[6]), float(args[7]),
                       step, line)
-
+            matrix_mult(transform[len(transform)-1], edges)
+            draw_lines(edges, screen, color)
+            edges = []
         elif line == 'line':
             #print 'LINE\t' + str(args)
 
             add_edge( edges,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), float(args[5]) )
-
+            matrix_mult(transform[len(transform)-1], edges)
+            draw_lines(edges, screen, color)
+            edges = []
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
