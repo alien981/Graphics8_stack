@@ -8,6 +8,17 @@ screen = new_screen()
 color = [ 0, 255, 0 ]
 edges = []
 polygons = []
-transform = new_matrix()
+transform = [
+	[[1, 0, 0, 0], 
+	[0, 1, 0, 0],
+	[0, 0, 1, 0],
+	[0, 0, 0, 1]]
+	]
 
-parse_file( 'script', edges, polygons, transform, screen, color )
+
+#push(transform)
+#print_matrix(transform[1])
+#print_matrix(transform[0])
+#parse_file( 'script', edges, polygons, transform, screen, color)
+print_matrix(transform[0])
+print_matrix(transform[1])

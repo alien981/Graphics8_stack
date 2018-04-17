@@ -52,7 +52,7 @@ See the file script for an example of the file format
 """
 ARG_COMMANDS = [ 'line', 'scale', 'move', 'rotate', 'save', 'circle', 'bezier', 'hermite', 'box', 'sphere', 'torus' ]
 
-def parse_file( fname, edges, polygons, transform, screen, color ):
+def parse_file( fname, edges, polygons, transform, screen, color,):
 
     f = open(fname)
     lines = f.readlines()
@@ -75,7 +75,8 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
             add_sphere(polygons,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step_3d)
-
+	elif line == 'push':
+		push(stack)
         elif line == 'torus':
             #print 'TORUS\t' + str(args)
             add_torus(polygons,

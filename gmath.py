@@ -19,3 +19,8 @@ def calculate_normal(polygons, i):
     N[2] = A[0] * B[1] - A[1] * B[0]
 
     return N
+
+def push(stack):
+	q = stack.pop()
+	stack.append(q)
+	stack.append(q)
